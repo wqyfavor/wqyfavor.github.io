@@ -43,6 +43,7 @@ h2 {
 .title-oc {
     background-image: url(../img/oc.png);
     background-size: contain;
+    background-repeat: no-repeat;
     width:126px;
     height:27px;
     margin-left: 5px;
@@ -53,6 +54,7 @@ h2 {
     right: 3.5%;
     background-image: url(../img/xml.png);
     background-size: contain;
+    background-repeat: no-repeat;
     margin-left: 5px;
 }
 .item {
