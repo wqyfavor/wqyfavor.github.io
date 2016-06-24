@@ -43,11 +43,13 @@ h2 {
 h2.title-oc {
     background-image: url(../img/oc.png);
     width:140px;
+    height:55px;
     background-size: 140px 50px;
     left: 3.5%;
 }
 h2.title-xml {
     width:130px;
+    height:55px;
     background-size: 130px 50px;
     right: 3.5%;
     background-image: url(../img/xml.png);
