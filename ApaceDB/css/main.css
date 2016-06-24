@@ -31,7 +31,8 @@ h1 {
     margin:0 auto;
 }
 h2 {
-    display: block;
+    disp0px;
+    right: 3.5%;lay: block;
     height: 30px;
     position: absolute;
     top: -8px;
@@ -51,7 +52,6 @@ h2.title-xml {
     width:130px;
     height:55px;
     background-size: 130px 50px;
-    right: 3.5%;
     background-image: url(../img/xml.png);
 }
 .item {
