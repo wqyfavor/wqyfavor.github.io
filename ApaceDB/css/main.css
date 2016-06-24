@@ -40,17 +40,20 @@ h2 {
     text-indent: -10000px;
     opacity: .4;
 }
-h2.title-oc {
+.title-oc {
     background-image: url(../img/oc.png);
-    width:auto;
-    height:55px;
-    left: 3.5%;
+    background-size: contain;
+    width:127px;
+    height:27px;
+    margin-left: 5px;
 }
-h2.title-xml {
-    width:auto;
-    height:55px;
+.title-xml {
+    width:54px;
+    height:27px;
     right: 3.5%;
     background-image: url(../img/xml.png);
+    background-size: contain;
+    margin-left: 5px;
 }
 .item {
     width: 50%;
@@ -71,9 +74,9 @@ h2.title-xml {
     line-height: 1.5em;
 }
 #objcTextarea {
-    left:3.5%;
+    left:1.5%;
 }
-#jsTextarea {
+#xmlTextarea {
     left:1.5%;
 }
 #convertBtn {
