@@ -31,8 +31,7 @@ h1 {
     margin:0 auto;
 }
 h2 {
-    disp0px;
-    right: 3.5%;lay: block;
+    display: block;
     height: 30px;
     position: absolute;
     top: -8px;
@@ -43,15 +42,14 @@ h2 {
 }
 h2.title-oc {
     background-image: url(../img/oc.png);
-    width:140px;
+    width:auto;
     height:55px;
-    background-size: 140px 50px;
     left: 3.5%;
 }
 h2.title-xml {
-    width:130px;
+    width:auto;
     height:55px;
-    background-size: 130px 50px;
+    right: 3.5%;
     background-image: url(../img/xml.png);
 }
 .item {
