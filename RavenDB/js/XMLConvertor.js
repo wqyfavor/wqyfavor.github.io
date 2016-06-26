@@ -1,5 +1,19 @@
 var StringBuilder = require('./StringBuilder').StringBuilder;
 
+String.format = function() 
+{
+    if (arguments.length == 0)
+        return null;
+
+    var str = arguments[0];
+    for (var i = 1; i < arguments.length; i ++)
+     {
+        var re = new RegExp('\\{' + (i-1) + '\\}','gm');
+        str = str.replace(re, arguments[i]);
+    }
+    return str;
+}
+
 function isIdentifier(c)
 {
     return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || (c == '_');
