@@ -116,7 +116,7 @@ var convertor = function(script, cb)
         
         if (sqlType.length > 0)
         {
-            if (createTableSQL.count > 0)
+            if (createTableSQL.count() > 0)
             {
                 createTableSQL.append(format(", {0}", prop.name));
             }
@@ -127,7 +127,7 @@ var convertor = function(script, cb)
             
             createTableSQL.append(" ");
             createTableSQL.append(sqlType);
-            if (propertiesLine.count > 0)
+            if (propertiesLine.count() > 0)
             {
                 propertiesLine.append(format(", {0}", prop.name));
             }
@@ -205,8 +205,8 @@ var convertor = function(script, cb)
 
     console.log(xml.toString());
     console.log(oc.toString());
-    
-    return {xml: xml.toString(), oc: oc.toString(), swift: "// Will be available soon."}
+
+    return {xml: xml.toString(), oc: oc.toString(), swift: "// Will be available soon."};
 }
 
 exports.convertor = convertor;
