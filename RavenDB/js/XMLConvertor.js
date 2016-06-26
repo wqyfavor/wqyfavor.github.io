@@ -1,6 +1,6 @@
 var StringBuilder = require('./StringBuilder').StringBuilder;
 
-String.format = function() 
+format = function() 
 {
     if (arguments.length == 0)
         return null;
@@ -118,7 +118,7 @@ var convertor = function(script, cb)
         {
             if (createTableSQL.count > 0)
             {
-                createTableSQL.append(String.format(", {0}", prop.name));
+                createTableSQL.append(format(", {0}", prop.name));
             }
             else
             {
@@ -129,7 +129,7 @@ var convertor = function(script, cb)
             createTableSQL.append(sqlType);
             if (propertiesLine.count > 0)
             {
-                propertiesLine.append(String.format(", {0}", prop.name));
+                propertiesLine.append(format(", {0}", prop.name));
             }
             else
             {
@@ -139,16 +139,16 @@ var convertor = function(script, cb)
     }
     
     var xml = new StringBuilder("");
-    xml.append(String.format("<module name=\"{0}\" initializer=\"createTable\" tableName=\"{1}_table\" version=\"1.0\">\n", className, className));
+    xml.append(format("<module name=\"{0}\" initializer=\"createTable\" tableName=\"{1}_table\" version=\"1.0\">\n", className, className));
     xml.append("\n");
-    xml.append(String.format("    <const table_columns=\"({0})\"/>\n", propertiesLine));
-    xml.append(String.format("    <const table_values=\"%%{'#{m.*}', {0}}\"/>\n", propertiesLine));   
-    xml.append(String.format("    <const table_update=\"update ${T} set %%{'* = #{m.*}', {0}}\"/>\n", propertiesLine));
+    xml.append(format("    <const table_columns=\"({0})\"/>\n", propertiesLine));
+    xml.append(format("    <const table_values=\"%%{'#{m.*}', {0}}\"/>\n", propertiesLine));   
+    xml.append(format("    <const table_update=\"update ${T} set %%{'* = #{m.*}', {0}}\"/>\n", propertiesLine));
     xml.append("\n");
     xml.append("    <update id=\"createTable\">\n");
     xml.append("        <!--在第二个step里输入建索引的语句，如果有更多索引，可以添加step。如果不需要索引，可以把step都删除，只保留创建表的SQL语句。-->\n");
     xml.append("        <step>\n");
-    xml.append(String.format("            create table if not exists ${T} ({0})\n", createTable));
+    xml.append(format("            create table if not exists ${T} ({0})\n", createTableSQL));
     xml.append("        </step>\n");
     xml.append("        <step>\n");
     xml.append("            create index if not exists <!--输入你需要创建的索引-->\n");
@@ -164,7 +164,7 @@ var convertor = function(script, cb)
     xml.append("        insert into ${T} ${table_columns} values(${table_values})\n");
     xml.append("    </insert>\n");
     xml.append("\n");
-    xml.append(String.format("    <select id=\"getModels\" arguments=\"id\" result=\"[{0}]\">\n", className));
+    xml.append(format("    <select id=\"getModels\" arguments=\"id\" result=\"[{0}]\">\n", className));
     xml.append("        <!--检索方法，返回符合条件的对象数组。请自行修改检索条件，id仅为模板里随意定义的。-->\n");
     xml.append("        select * from ${T} where id = #{id}\n");
     xml.append("    </select>\n");
@@ -190,13 +190,13 @@ var convertor = function(script, cb)
     xml.append("</module>");    
     
     var oc = new StringBuilder("");
-    oc.append(String.format("@protocol {0}Protocol <APDAOProtocol>\n", className));
+    oc.append(format("@protocol {0}Protocol <APDAOProtocol>\n", className));
     oc.append("\n");
-    oc.append(String.format("- (APDAOResult*)insertModel:({0}*)model;\n", className));
+    oc.append(format("- (APDAOResult*)insertModel:({0}*)model;\n", className));
     oc.append("- (APDAOResult*)insertModels:(NSArray*)models;\n");
     oc.append("- (NSArray*)getModels:(NSString*)primaryKey;\n");
     oc.append("- (APDAOResult*)deleteModels:(NSArray*)ids;\n");
-    oc.append(String.format("- (APDAOResult*)updateModel:(%@*)model;\n", className));
+    oc.append(format("- (APDAOResult*)updateModel:(%@*)model;\n", className));
     oc.append("- (APDAOResult*)updateModels:(NSArray*)models;\n");
     oc.append("\n");
     oc.append("@end");
