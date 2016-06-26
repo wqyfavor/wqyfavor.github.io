@@ -78,7 +78,7 @@
         var convertor = require('./js/XMLConvertor').convertor;
 
         $('convertBtn').onclick = function() {
-            var script = $('declTextarea').value.replace('\n', '')
+            var script = $('declTextarea').value.replace('\n', '');
             $('errorTips').style.display = "none";
             convertor(script, function(result, error) {
                 $('errorTips').style.display = "none";

@@ -105,7 +105,7 @@ var convertor = function(script, cb)
         {
             sqlType = "double";
         }
-        else if (prop[prop.length - 1] == '*')
+        else if (prop.type[prop.type.length - 1] == '*')
         {
             ignoredProperties.push(prop.raw);
         }
@@ -142,8 +142,8 @@ var convertor = function(script, cb)
     xml.append(format("<module name=\"{0}\" initializer=\"createTable\" tableName=\"{1}_table\" version=\"1.0\">\n", className, className));
     xml.append("\n");
     xml.append(format("    <const table_columns=\"({0})\"/>\n", propertiesLine));
-    xml.append(format("    <const table_values=\"%%{'#{m.*}', {0}}\"/>\n", propertiesLine));   
-    xml.append(format("    <const table_update=\"update ${T} set %%{'* = #{m.*}', {0}}\"/>\n", propertiesLine));
+    xml.append(format("    <const table_values=\"%{'#{m.*}', {0}}\"/>\n", propertiesLine));   
+    xml.append(format("    <const table_update=\"update ${T} set %{'* = #{m.*}', {0}}\"/>\n", propertiesLine));
     xml.append("\n");
     xml.append("    <update id=\"createTable\">\n");
     xml.append("        <!--在第二个step里输入建索引的语句，如果有更多索引，可以添加step。如果不需要索引，可以把step都删除，只保留创建表的SQL语句。-->\n");
