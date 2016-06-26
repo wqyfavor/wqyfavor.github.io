@@ -85,9 +85,17 @@
                     $('errorTips').style.display = "block";
                     console.error(error)
                 }
-                $('xmlTextarea').value = result.xml;
-                $('objcTextarea').value = result.oc;
-                $('swiftTextarea').value = result.swift;
+
+                if (result == null) {
+					$('xmlTextarea').value = "";
+					$('objcTextarea').value = "";
+					$('swiftTextarea').value = "";
+                }
+                else {
+					$('xmlTextarea').value = result.xml;
+					$('objcTextarea').value = result.oc;
+					$('swiftTextarea').value = result.swift;
+                }
             });
         }
         $('declTextarea').focus();
