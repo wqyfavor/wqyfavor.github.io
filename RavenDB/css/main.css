@@ -171,6 +171,7 @@ h2 {
     background: #ffefef;
     position: absolute;
     text-align: center;
+    bottom: 0px;
     left: 2.5%;
     width: 95%;
     padding: 8px 0;
