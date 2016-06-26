@@ -202,6 +202,10 @@ var convertor = function(script, cb)
     oc.append("@end");
     oc.append("\n");
 
+
+    console.log(xml.toString());
+    console.log(oc.toString());
+    
     return {xml: xml.toString(), oc: oc.toString(), swift: "// Will be available soon."}
 }
 
