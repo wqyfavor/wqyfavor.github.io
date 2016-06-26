@@ -83,7 +83,7 @@
             convertor(script, function(result, error) {
                 if (error) {
                     $('errorTips').style.display = "block";
-                    console.log(error)
+                    $('errorTips').innerHTML = error;
                 }
 
                 if (result == null) {
