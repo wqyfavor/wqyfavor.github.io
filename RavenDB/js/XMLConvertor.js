@@ -129,7 +129,7 @@ var convertor = function(script, cb)
     xml.append("\n");
     xml.append(String.format("    <const table_columns=\"({0})\"/>\n", propertiesLine));
     xml.append(String.format("    <const table_values=\"%%{'#{m.*}', {0}}\"/>\n", propertiesLine));   
-    xml.append(String.format("    <const table_update=\"update ${T} set %%{'* = #{m.*}', {0}}\"/>\n", propertiesLine);
+    xml.append(String.format("    <const table_update=\"update ${T} set %%{'* = #{m.*}', {0}}\"/>\n", propertiesLine));
     xml.append("\n");
     xml.append("    <update id=\"createTable\">\n");
     xml.append("        <!--在第二个step里输入建索引的语句，如果有更多索引，可以添加step。如果不需要索引，可以把step都删除，只保留创建表的SQL语句。-->\n");
