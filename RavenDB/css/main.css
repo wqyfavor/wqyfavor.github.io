@@ -13,7 +13,7 @@ a:hover {
 }
 .main {
     background: linear-gradient(230deg, #38a689, #2f8d97 30%, #207c92 65%, #116680);
-    height: 570px;
+    height: 1300px;
     overflow: hidden;
 }
 h1 {
@@ -40,46 +40,105 @@ h2 {
     text-indent: -10000px;
     opacity: .4;
 }
-.title-oc {
-    background-image: url(../img/oc.png);
+.title-model {
+    background-image: url(../img/model.png);
     background-size: contain;
     background-repeat: no-repeat;
-    width:126px;
+    width:222px;
     height:27px;
-    margin-left: 5px;
+    margin-left: 2.5%;
 }
 .title-xml {
-    width:54px;
+    width:52px;
     height:27px;
-    right: 3.5%;
     background-image: url(../img/xml.png);
     background-size: contain;
     background-repeat: no-repeat;
-    margin-left: 5px;
+    margin-left: 2.5%;
 }
-.item {
+.title-objcref {
+    width:131px;
+    height:27px;
+    background-image: url(../img/oc.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.title-swiftref {
+    width:56px;
+    height:27px;
+    left: 5%;
+    position: relative;
+    background-image: url(../img/swift.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.split {
+    width: 100%;
+    height: 10px;
+}
+.ref-background {
+    left: 2.5%;
+    width: 95%;
+    float: left;
+    height: 330px;
+    position: relative;
+}
+.refitem-left {
     width: 50%;
     float: left;
     height: 330px;
     position: relative;
 }
-.item textarea {
+.refitem-left textarea {
     position: absolute;
+    left:0px;
     width:95%;
     height:300px;
-    margin: 10px auto;
     border:none;
     overflow:scroll;
     outline:none;
     padding: 8px;
     font-size:13px;
     line-height: 1.5em;
+    resize: none;
 }
-#objcTextarea {
-    left:1.5%;
+.refitem-right {
+    width: 50%;
+    float: left;
+    height: 330px;
+    position: relative;
 }
-#xmlTextarea {
-    left:1.5%;
+.refitem-right textarea {
+    position: absolute;
+    right:0px;
+    width:95%;
+    height:300px;
+    border:none;
+    overflow:scroll;
+    outline:none;
+    padding: 8px;
+    font-size:13px;
+    line-height: 1.5em;
+    resize: none;
+}
+.item {
+    width: 100%;
+    float: left;
+    height: 330px;
+    position: relative;
+}
+.item textarea {
+    position: absolute;
+    left:2.5%;
+    width:95%;
+    height:300px;
+    border:none;
+    overflow:scroll;
+    outline:none;
+    padding: 8px;
+    font-size:13px;
+    line-height: 1.5em;
+    resize: none;
 }
 #convertBtn {
     text-decoration: none;
@@ -103,7 +162,8 @@ h2 {
 .action {
     clear: both;
     text-align: center;
-    padding-top:30px;
+    padding-top:50px;
+    padding-bottom: 50px;
 }
 .error-tips {
     color: #ac2b2b;
@@ -117,9 +177,6 @@ h2 {
     padding: 8px 0;
     display: none;
 }
-
-
-
 .intro {
     padding:60px 0;
     background: #f3f3f3;

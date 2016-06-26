@@ -1,0 +1,99 @@
+<html>
+<head>
+    <title>RavenDB XML Convertor</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="icon" type="image/png" href="./img/raven_icon.png">
+</head>
+<body>
+    <div class="main" id="main">
+        <h1>RavenDB XML Convertor</h1>
+        <div id="loading">Loading ... </div>
+        <div id="convertor">
+            <div class="textarea-ctn">
+                <div class="item" id="objcItem">
+                    <div class="title-model"></div>
+                    <textarea id="declTextarea" wrap="off"></textarea>
+                </div>
+                <div class="action">
+                <a href="javascript:void(0)" id="convertBtn">Convert</a>
+                </div>
+                <div class="item" id="xmlItem">
+                	<div class="split"></div>
+                    <div class="title-xml"></div>
+                    <textarea id="xmlTextarea" wrap="off"></textarea>
+                    <div class="error-tips" id="errorTips">Syntax Error</div>
+                </div>
+                <div class="ref-background">
+                	<div class="split"></div>
+	                <div class="refitem-left" id="objcRefItem">
+	                	<div class="split"></div>
+	                    <div class="title-objcref"></div>
+	                    <textarea id="objcTextarea" wrap="off"></textarea>
+	                </div>
+	                <div class="refitem-right" id="swiftRefItem">
+	                	<div class="split"></div>
+	                    <div class="title-swiftref"></div>
+	                    <textarea id="swiftTextarea" wrap="off"></textarea>
+	                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intro">
+        <div class="wrapper">
+            <div class="whats-jspatch">
+                <h3>What's RavenDB XML Convertor</h3>
+                <p><a href="https://">RavenDB</a> offers integrated key-value and ORM solution for mobile platform based on <a href="https://www.sqlite.org/">SQLite</a>.</p>
+                <p>This XML Convertor tool converts Objective-C class interface declaration into ORM XML configuration file automatically.</p>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="footer">
+        Code licensed under MIT. <a href="https://">Fork RavenDB on github</a>
+    </div>
+    <script src="./js/lib/require.js"></script>
+    <script>
+    function $(id) {
+        return document.getElementById(id)
+    }
+    window.onload = function() {
+        var sample = [
+            '@interface MessageModel : NSObject',
+            '',
+            '@property (nonatomic, strong) NSString* msgId;',
+            '@property (nonatomic, strong) NSString* msgFromUid;',
+            '@property (nonatomic, strong) NSString* msgToUid;',
+            '@property (nonatomic, assign) BOOL msgRead;',
+            '@property (nonatomic, assign) BOOL msgType;',
+            '@property (nonatomic, strong) NSString* avatarUrl;',
+            '',
+            '@end'
+        ].join('\n');
+
+        $('declTextarea').value = sample;
+        
+        var convertor = require('./js/XMLConvertor').convertor
+
+        $('convertBtn').onclick = function() {
+            var script = $('declTextarea').value.replace('\n', '')
+            $('errorTips').style.display = "none";
+            convertor(script, function(result, error) {
+                if (error) {
+                    $('errorTips').style.display = "block";
+                    console.error(error)
+                }
+                $('xmlTextarea').value = result.xml;
+                $('objcTextarea').value = result.oc;
+                $('swiftTextarea').value = result.swift;
+            });
+        }
+        $('declTextarea').focus();
+        $('loading').style.display = "none";
+        $('convertor').style.display = "block";
+    }
+    </script>
+</body>
+
+</html>
