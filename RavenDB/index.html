@@ -14,6 +14,7 @@
                 <div class="item" id="objcItem">
                     <div class="title-model"></div>
                     <textarea id="declTextarea" wrap="off"></textarea>
+                    <div class="error-tips" id="errorTips">Syntax Error</div>
                 </div>
                 <div class="action">
                 <a href="javascript:void(0)" id="convertBtn">Convert</a>
@@ -22,7 +23,6 @@
                 	<div class="split"></div>
                     <div class="title-xml"></div>
                     <textarea id="xmlTextarea" wrap="off"></textarea>
-                    <div class="error-tips" id="errorTips">Syntax Error</div>
                 </div>
                 <div class="ref-background">
                 	<div class="split"></div>
@@ -83,7 +83,7 @@
             convertor(script, function(result, error) {
                 if (error) {
                     $('errorTips').style.display = "block";
-                    console.error(error)
+                    console.log(error)
                 }
 
                 if (result == null) {
