@@ -1,6 +1,6 @@
 var StringBuilder = require('./StringBuilder').StringBuilder;
 
-format = function() 
+var format = function() 
 {
     if (arguments.length == 0)
         return null;
