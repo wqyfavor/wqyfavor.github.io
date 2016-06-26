@@ -24,7 +24,7 @@ var convertor = function(script, cb)
     // 找类名
     var classMatches = script.match(/@interface\s*\w+\s*:\s*\w+/gi);
 
-    if (classMatches.length == 0) 
+    if (classMatches == null || classMatches.length == 0) 
     {
         if (cb) cb(null, "No class found.");
         return;
@@ -37,7 +37,7 @@ var convertor = function(script, cb)
 
     // 属性列表
     var propertyMatches = script.match(/@property\s*(\(.+\)\s*)?(\w|\s|\*)+\w+\s*;/gi);
-    if (propertyMatches.length == 0)
+    if (propertyMatches == null || propertyMatches.length == 0)
     {
         if (cb) cb(null, "No property found.");
         return;
