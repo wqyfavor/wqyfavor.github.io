@@ -202,7 +202,7 @@ var convertor = function(script, cb)
     oc.append("@end");
     oc.append("\n");
 
-    if (cb) cb({xml:xml.toString(), oc:oc.toString(), swift:"// Will be available soon."}, null);
+    if (cb) cb({xml:xml.toString(), oc:oc.toString(), swift:"// Will be available soon.", ignored:ignoredProperties}, null);
 }
 
 exports.convertor = convertor;

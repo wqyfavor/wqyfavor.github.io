@@ -81,6 +81,7 @@
             var script = $('declTextarea').value.replace('\n', '')
             $('errorTips').style.display = "none";
             convertor(script, function(result, error) {
+                $('errorTips').style.display = "none";
                 if (error) {
                     $('errorTips').style.display = "block";
                     $('errorTips').innerHTML = error;
@@ -95,6 +96,11 @@
 					$('xmlTextarea').value = result.xml;
 					$('objcTextarea').value = result.oc;
 					$('swiftTextarea').value = result.swift;
+
+					if (result.ignored.length > 0) {
+                    	$('errorTips').style.display = "block";
+                    	$('errorTips').innerHTML = result.ignored.join('\n');						
+					}
                 }
             });
         }
