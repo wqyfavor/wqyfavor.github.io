@@ -196,17 +196,13 @@ var convertor = function(script, cb)
     oc.append("- (APDAOResult*)insertModels:(NSArray*)models;\n");
     oc.append("- (NSArray*)getModels:(NSString*)primaryKey;\n");
     oc.append("- (APDAOResult*)deleteModels:(NSArray*)ids;\n");
-    oc.append(format("- (APDAOResult*)updateModel:(%@*)model;\n", className));
+    oc.append(format("- (APDAOResult*)updateModel:({0}*)model;\n", className));
     oc.append("- (APDAOResult*)updateModels:(NSArray*)models;\n");
     oc.append("\n");
     oc.append("@end");
     oc.append("\n");
 
-
-    console.log(xml.toString());
-    console.log(oc.toString());
-
-    return {xml: xml.toString(), oc: oc.toString(), swift: "// Will be available soon."};
+    return {xml:xml.toString(), oc:oc.toString(), swift:"// Will be available soon."};
 }
 
 exports.convertor = convertor;
