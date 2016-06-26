@@ -99,7 +99,7 @@
 
 					if (result.ignored.length > 0) {
                     	$('errorTips').style.display = "block";
-                    	$('errorTips').innerHTML = result.ignored.join('\n');						
+                    	$('errorTips').innerHTML = "Ignored properties: " + result.ignored.join(" ");						
 					}
                 }
             });
