@@ -107,7 +107,7 @@ var convertor = function(script, cb)
         }
         else if (prop.type[prop.type.length - 1] == '*')
         {
-            ignoredProperties.push(prop.raw);
+            sqlType = "blob";
         }
         else
         {
