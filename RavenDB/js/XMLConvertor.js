@@ -92,7 +92,7 @@ var convertor = function(script, cb)
         var sqlType = "";
         
         prop = properties[prop];
-        if (prop.type == "NSString*" || prop.typ == "NSMutableString*")
+        if (prop.type == "NSString*" || prop.type == "NSMutableString*")
         {
             sqlType = "text";
         }
